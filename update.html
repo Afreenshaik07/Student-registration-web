@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Update Student</h1>
+    <form method="POST" action="{{ url_for('update', id=student[0]) }}">
+        <input type="text" name="name" value="{{ student[1] }}" required>
+        <input type="email" name="email" value="{{ student[2] }}" required>
+        <input type="text" name="phone" value="{{ student[3] }}" required>
+        <select name="gender" required>
+            <option value="Male" {% if student[4] == 'Male' %}selected{% endif %}>Male</option>
+            <option value="Female" {% if student[4] == 'Female' %}selected{% endif %}>Female</option>
+        </select>
+        <input type="date" name="dob" value="{{ student[5] }}" required>
+        <textarea name="address" required>{{ student[6] }}</textarea>
+        <select name="course" required>
+            <option value="B.Tech" {% if student[7] == 'B.Tech' %}selected{% endif %}>B.Tech</option>
+            <option value="MBA" {% if student[7] == 'MBA' %}selected{% endif %}>MBA</option>
+            <option value="MCA" {% if student[7] == 'MCA' %}selected{% endif %}>MCA</option>
+        </select>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
